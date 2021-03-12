@@ -11,6 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'my'], function () {
+    Route::get('/state', function () {
+        echo 'state';
+    });
+    Route::get('/university', function () {
+        echo 'university';
+    });
+    Route::get('/bank', function () {
+        echo 'bank';
+    });
 });
+
