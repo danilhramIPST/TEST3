@@ -11,5 +11,4 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
-php artisan make:controller test\FirstTestController
-php artisan make:controller test\SecondTestController
+

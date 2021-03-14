@@ -28,18 +28,16 @@ php artisan make:controller test\SecondTestController;*/
 /*echo "Hello, world";*/
 
 
+
+
+//Route::get('/', [WelcomeController::class, 'show']);
+
 use App\Http\Controllers\WelcomeController;
 
-Route::get('/', [WelcomeController::class, 'show']);
+Route::group(['prefix' => 'my'], function () {
+    Route::get('/controller', [WelcomeController::class, 'get']);
+    Route::get('route/{price}', [WelcomeController::class, 'show']);
 
-use App\Http\Controllers\test\FirstTestController;
-use App\Http\Controllers\test\SecondTestController;
-
-Route::group(['prefix' => 'test'], function () {
-    Route::get('/1', [FirstTestController::class, 'index']);
-    Route::get('/2', [SecondTestController::class, 'index']);
 });
 
-use App\Http\Controllers\UserController;
 
-Route::get('/user/{name?}', [UserController::class, 'showName']);

@@ -1,12 +1,16 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 
 class WelcomeController extends Controller
 {
-    public function show()
+    public function get()
     {
-        return view('welcome');
+        echo 'price';
+    }
+    public function show($price) {
+        echo $price;
     }
 }
 ?>
