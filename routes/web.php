@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix' => 'my'], function () {
+/*Route::group(['prefix' => 'my'], function () {
     Route::get('/state', function () {
         echo 'state';
     });
@@ -20,9 +20,26 @@ Route::group(['prefix' => 'my'], function () {
     });
     Route::get('/bank', function () {
         echo 'bank';
-    });
-});
+    });*/
+//});
 /*php artisan make:controller test\FirstTestController;
 php artisan make:controller test\SecondTestController;*/
 
 /*echo "Hello, world";*/
+
+
+use App\Http\Controllers\WelcomeController;
+
+Route::get('/', [WelcomeController::class, 'show']);
+
+use App\Http\Controllers\test\FirstTestController;
+use App\Http\Controllers\test\SecondTestController;
+
+Route::group(['prefix' => 'test'], function () {
+    Route::get('/1', [FirstTestController::class, 'index']);
+    Route::get('/2', [SecondTestController::class, 'index']);
+});
+
+use App\Http\Controllers\UserController;
+
+Route::get('/user/{name?}', [UserController::class, 'showName']);
