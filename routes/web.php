@@ -25,7 +25,7 @@
 /*php artisan make:controller test\FirstTestController;
 php artisan make:controller test\SecondTestController;*/
 
-/*echo "Hello, world";*/
+
 
 
 
