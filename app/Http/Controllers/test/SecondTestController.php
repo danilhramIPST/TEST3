@@ -1,5 +1,5 @@
 <?php
-/*
+
 namespace App\Http\Controllers\test;
 
 use App\Http\Controllers\Controller;
@@ -11,5 +11,5 @@ class SecondTestController extends Controller
     {
         echo 'test 2';
     }
-}*/
+}
 

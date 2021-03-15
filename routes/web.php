@@ -12,31 +12,6 @@
 */
 
 /*Route::group(['prefix' => 'my'], function () {
-    Route::get('/state', function () {
-        echo 'state';
-    });
-    Route::get('/university', function () {
-        echo 'university';
-    });
-    Route::get('/bank', function () {
-        echo 'bank';
-    });*/
-//});*/
-
-
-//Route::get('/', [WelcomeController::class, 'show']);
-
-/*use App\Http\Controllers\WelcomeController;
-
-Route::group(['prefix' => 'my'], function () {
-    Route::get('/controller', [WelcomeController::class, 'get']);
-    Route::get('route/{price}', [WelcomeController::class, 'show']);
-
-});
-*/
-
-
-Route::group(['prefix' => 'my'], function () {
     Route::get('/route/{language?}', function ($language = null) {
         if ($language) {
             echo $language;
@@ -46,5 +21,24 @@ Route::group(['prefix' => 'my'], function () {
 
     });
 
+});*/
+
+use App\Http\Controllers\WelcomeController;
+Route::get('/', [WelcomeController::class, 'show']);
+
+use App\Http\Controllers\test\FirstTestController;
+use App\Http\Controllers\test\SecondTestController;
+Route::group(['prefix' => 'test'], function () {
+    Route::get('/1', [FirstTestController::class, 'index']);
+    Route::get('/2', [SecondTestController::class, 'index']);
 });
 
+use App\Http\Controllers\UserController;
+Route::get('/user/{price?}', [UserController::class, 'showName']);
+
+use App\Http\Controllers\ExamController;
+
+Route::group(['prefix'=>'my'], function (){
+    Route::get ('/route/{price}', [ExamController::class, 'show']);
+Route::get('/controller', [ExamController::class, 'get']);
+});
