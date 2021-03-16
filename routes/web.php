@@ -41,4 +41,7 @@ use App\Http\Controllers\ExamController;
 Route::group(['prefix'=>'my'], function (){
     Route::get ('/route/{price}', [ExamController::class, 'show']);
 Route::get('/controller', [ExamController::class, 'get']);
+Route::get('/view', [ExamController::class, 'sendView']);
 });
+
+
