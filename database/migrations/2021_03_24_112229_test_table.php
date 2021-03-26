@@ -13,8 +13,7 @@ class TestTable extends Migration
      */
     public function up()
     {
-        Schema::table('users',function (Blueprint
-                                        $table){
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn('name');
             $table->string('first_name');
             $table->string('second name');
@@ -28,10 +27,10 @@ class TestTable extends Migration
      */
     public function down()
     {
-        Schema::table('users',function(Blueprint
-        $table){
+        Schema::table('users', function (Blueprint $table) {
             $table->dropColumn(['first_name',
                 'second_name']);
+            $table->string('name');
         });
     }
 }
