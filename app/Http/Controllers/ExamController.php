@@ -10,7 +10,9 @@ class ExamController extends Controller
     {
         echo 'price';
     }
-    public function show ($price) {
+
+    public function show($price)
+    {
         echo $price;
     }
 

@@ -42,6 +42,10 @@ Route::group(['prefix'=>'my'], function (){
     Route::get ('/route/{price}', [ExamController::class, 'show']);
 Route::get('/controller', [ExamController::class, 'get']);
 Route::get('/view', [ExamController::class, 'sendView']);
-});
 
+
+});
+use App\Http\Controllers\test\TaskController;
+
+Route::post('/task/store', [TaskController::class, 'store']);
 

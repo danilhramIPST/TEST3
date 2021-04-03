@@ -13,13 +13,13 @@ class FirstTestController extends Controller
     {
         //Получение значений по name и user_id
         $task = Task::where('user_id', 1)->where('name', 'name')->get();
-        foreach ($task as $item){
+        foreach ($task as $item) {
             echo $item->description;
         }
 
         //Получение 5 заданий по Description или Name
         $task = Task::where('description', 'Next Description')->orWhere('name', 'Next Name1')->take(5)->get();
-        foreach ($task as $value){
+        foreach ($task as $value) {
             echo $value->name;
         }
 
@@ -48,26 +48,26 @@ class FirstTestController extends Controller
 
         //Аксессоры
         $users = User::all();
-        foreach ($users as $user){
-            echo $user->fullname."|";
+        foreach ($users as $user) {
+            echo $user->fullname . "|";
         }
 
         $user = User::where('email', 'new@new.new')->first();
-         dump($user->first_name);
+        dump($user->first_name);
 
         User::where('email', 'new@new.new')
             ->update(['first_name' => 'New Name 2']);
 
         $user = User::where('email', 'new@new.new')->first();
         dump($user->first_name);
-       $user = User::where('email', 'new@new.new11')->first();
+        $user = User::where('email', 'new@new.new11')->first();
 
-         $task = new Task();
-         $task->name = 'Next Name3';
-         $task->description = 'Next Description';
-         $task->user_id = $user->id;
+        $task = new Task();
+        $task->name = 'Next Name3';
+        $task->description = 'Next Description';
+        $task->user_id = $user->id;
 
-         $task->save();
+        $task->save();
 
         $user = User::where('email', 'new@new.new')->first();
 
