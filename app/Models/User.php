@@ -46,4 +46,8 @@ class User extends Authenticatable
     {
         return $this->first_name . " " . $this->second_name;
     }
+    public function isAdmin()
+    {
+        return $this->is_admin === 1;
+    }
 }

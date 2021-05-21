@@ -13,7 +13,6 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('start_time');
         $this->middleware('auth');
     }
 

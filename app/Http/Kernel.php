@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\SetRequestStartTime;
+use App\Http\Middleware\TestMiddleware;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -63,6 +64,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'start_time' => SetRequestStartTime::class,
+        'test_midle' => TestMiddleware::class,
     ];
 
     /**

@@ -53,7 +53,8 @@ use App\Http\Controllers\test\TaskController;
 
 Route::post('/task/store', [TaskController::class, 'store']);
 
+use Illuminate\Support\Facades\Auth;
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->middleware('start_time')->name('home');
+Route::get('/home', 'HomeController@index')->middleware('start_time', 'test_midle')->name('home');
