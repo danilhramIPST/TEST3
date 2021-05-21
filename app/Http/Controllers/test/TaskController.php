@@ -3,15 +3,15 @@
 namespace App\Http\Controllers\test;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\TaskRequest;
+use App\Models\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
-        //dd($request);
-        //dd($request->all());
-        //dd($request->all());
+        Task::create($request->validated());
         return view('testpost',['post'=>$request->all()]);
     }
 

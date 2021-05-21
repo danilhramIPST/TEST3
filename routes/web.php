@@ -11,17 +11,7 @@
 |
 */
 
-/*Route::group(['prefix' => 'my'], function () {
-    Route::get('/route/{language?}', function ($language = null) {
-        if ($language) {
-            echo $language;
-        }else {
-    echo 'Language not found,default language - English';
-        }
 
-    });
-
-});*/
 
 use App\Http\Controllers\WelcomeController;
 Route::get('/', [WelcomeController::class, 'show']);
@@ -35,8 +25,10 @@ Route::group(['prefix' => 'test'], function () {
 
 use App\Http\Controllers\UserController;
 Route::get('/user/{price?}', [UserController::class, 'showName']);
+Route::post('/user/store', [UserController::class, 'store']);
 
 use App\Http\Controllers\ExamController;
+
 
 Route::group(['prefix'=>'my'], function (){
     Route::get ('/route/{price}', [ExamController::class, 'show']);

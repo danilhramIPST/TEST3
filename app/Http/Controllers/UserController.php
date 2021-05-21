@@ -1,46 +1,10 @@
 <?php
 
-/*namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class UserController extends Controller
-{
-    public function showName($name = null)
-    {
-        echo $name ?: 'User not found';
-    }
-}*/
-
-/*namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class UserController extends Controller
-{
-    public function showName($name = null)
-    {
-        return view('user-name');
-    }
-}*/
-/*
-namespace App\Http\Controllers;
-
-use Illuminate\Http\Request;
-
-class UserController extends Controller
-{
-    public function showName($name = null)
-    {
-        return view('user-name', [
-            'name' => $name,
-        ]);
-    }
-}*/
-
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserStoreRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -59,4 +23,14 @@ class UserController extends Controller
             'fakeData' => $fakeArray,
         ]);
     }
+
+    public function store(UserStoreRequest $request)
+    {
+        $data = $request->validated();
+        $user = User::firstOrCreate($data);
+
+        echo $user->toJson();
+
+    }
+
 }
