@@ -57,4 +57,3 @@ Route::post('/task/store', [TaskController::class, 'store']);
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->middleware('start_time')->name('home');
-
