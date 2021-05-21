@@ -13,6 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        $this->middleware('start_time');
         $this->middleware('auth');
     }
 
@@ -21,8 +22,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(/*Request $request*/)
     {
         return view('home');
+        //dd($request->attributes->get("start_time"));
     }
 }
