@@ -13,7 +13,7 @@ class AdminMigration111 extends Migration
      */
     public function up()
     {
-        Schema::table('users', function (Blueprint $table){
+        Schema::table('users', function (Blueprint $table) {
             $table->boolean('is_admin')->default('0');
         });
     }
@@ -25,6 +25,8 @@ class AdminMigration111 extends Migration
      */
     public function down()
     {
-
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('is_admin');
+        });
     }
 }
