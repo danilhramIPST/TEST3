@@ -11,8 +11,10 @@ class TaskController extends Controller
 {
     public function store(TaskRequest $request)
     {
-        Task::create($request->validated());
-        return view('testpost',['post'=>$request->all()]);
+        $data = $request->validated();
+        $task = Task::create($data);
+        echo $task->toJson();
+
     }
 
 }
